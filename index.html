@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Specialty Curriculum Development — Proposal for Zeta Charter Schools</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,300&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --purple: #5B2D8E;
+    --purple-dark: #3D1A64;
+    --purple-mid: #7A4AAD;
+    --purple-light: #EDE6F7;
+    --purple-xlight: #F8F5FD;
+    --gold: #C9860A;
+    --gold-light: #FBF0D9;
+    --text: #1C1228;
+    --text-mid: #4A3B5C;
+    --text-light: #8B7BA0;
+    --white: #FFFFFF;
+    --border: #E2D9F0;
+    --phase0: #5B2D8E;
+    --phase1: #8246C8;
+    --phase2: #3A7BD5;
+    --phase3: #1DA37A;
+    --phase4: #C9860A;
+    --phase5: #C44A4A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 0 3rem;
+    height: 52px;
+  }
+  nav .logo {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--purple);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    margin-right: auto;
+  }
+  nav a {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--text-mid);
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+    transition: color 0.2s;
+  }
+  nav a:hover { color: var(--purple); }
+
+  /* HERO */
+  .hero {
+    background: var(--purple-dark);
+    padding: 6rem 4rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -120px;
+    width: 480px; height: 480px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(160,100,220,0.25) 0%, transparent 70%);
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: 10%;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(100,60,160,0.2) 0%, transparent 70%);
+  }
+  .hero-inner { max-width: 860px; position: relative; z-index: 1; }
+  .hero-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 1.4rem;
+  }
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    font-weight: 500;
+    color: var(--white);
+    line-height: 1.18;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.01em;
+  }
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 300;
+    color: rgba(255,255,255,0.75);
+  }
+  .hero-meta {
+    display: flex;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.15);
+  }
+  .hero-meta-item { display: flex; flex-direction: column; gap: 2px; }
+  .hero-meta-item span:first-child {
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+  }
+  .hero-meta-item span:last-child {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.88);
+  }
+
+  /* SECTIONS */
+  section { padding: 5rem 4rem; }
+  section:nth-child(even) { background: var(--purple-xlight); }
+  .section-inner { max-width: 900px; margin: 0 auto; }
+  .section-label {
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--purple-mid);
+    margin-bottom: 0.75rem;
+  }
+  h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 1.75rem;
+    line-height: 1.25;
+  }
+  h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--purple-dark);
+    margin-bottom: 0.6rem;
+  }
+  p { color: var(--text-mid); margin-bottom: 1rem; }
+  p:last-child { margin-bottom: 0; }
+
+  /* APPROACH CARDS */
+  .approach-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+  .approach-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.75rem;
+  }
+  .approach-card .icon {
+    width: 36px; height: 36px;
+    background: var(--purple-light);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1rem;
+    font-size: 18px;
+  }
+
+  /* SCOPE TABLE */
+  .scope-phases { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+  .scope-phase {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--white);
+  }
+  .scope-phase-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.15s;
+  }
+  .scope-phase-header:hover { background: var(--purple-xlight); }
+  .phase-badge {
+    min-width: 90px;
+    text-align: center;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+    color: white;
+  }
+  .scope-phase-header h3 { margin: 0; font-size: 1rem; flex: 1; }
+  .scope-phase-header .meta {
+    font-size: 12px;
+    color: var(--text-light);
+    font-weight: 500;
+    margin-right: 0.5rem;
+  }
+  .chevron {
+    width: 20px; height: 20px;
+    border: none; background: none;
+    color: var(--text-light);
+    transition: transform 0.25s;
+    font-size: 16px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .scope-phase-body {
+    display: none;
+    padding: 0 1.5rem 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+  .scope-phase-body.open { display: block; }
+  .deliverables-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1.25rem;
+  }
+  .deliverable-group h4 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--purple);
+    margin-bottom: 0.5rem;
+  }
+  .deliverable-group ul {
+    list-style: none;
+    padding: 0;
+  }
+  .deliverable-group ul li {
+    font-size: 13.5px;
+    color: var(--text-mid);
+    padding: 4px 0;
+    padding-left: 1rem;
+    position: relative;
+  }
+  .deliverable-group ul li::before {
+    content: '›';
+    position: absolute; left: 0;
+    color: var(--purple-mid);
+    font-weight: bold;
+  }
+
+  /* GANTT */
+  #gantt-section { background: var(--white); }
+  .gantt-container {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 2rem;
+  }
+  .gantt-scroll { overflow-x: auto; }
+  #gantt-svg { display: block; min-width: 700px; }
+  .gantt-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+  .legend-item {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 12px; color: var(--text-mid);
+  }
+  .legend-dot {
+    width: 10px; height: 10px; border-radius: 2px;
+  }
+  .gantt-tooltip {
+    position: fixed;
+    background: var(--purple-dark);
+    color: white;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 12.5px;
+    line-height: 1.5;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s;
+    max-width: 260px;
+    z-index: 200;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  }
+  .gantt-tooltip.visible { opacity: 1; }
+  .gantt-tooltip strong { color: rgba(255,255,255,0.95); display: block; margin-bottom: 4px; }
+  .gantt-tooltip span { color: rgba(255,255,255,0.7); font-size: 11.5px; }
+
+  /* TEAM */
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+  .team-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem;
+  }
+  .team-card .role-badge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--purple);
+    background: var(--purple-light);
+    padding: 3px 10px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 0.75rem;
+  }
+  .team-card h3 { font-size: 1rem; margin-bottom: 0.25rem; }
+  .team-card .desc { font-size: 13px; color: var(--text-light); }
+
+  /* BUDGET */
+  .budget-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+    background: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .budget-table thead tr {
+    background: var(--purple);
+    color: white;
+  }
+  .budget-table thead th {
+    padding: 0.9rem 1.25rem;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .budget-table tbody tr {
+    border-bottom: 1px solid var(--border);
+    transition: background 0.15s;
+  }
+  .budget-table tbody tr:hover { background: var(--purple-xlight); }
+  .budget-table tbody tr:last-child { border-bottom: none; }
+  .budget-table td {
+    padding: 0.85rem 1.25rem;
+    font-size: 13.5px;
+    color: var(--text-mid);
+    vertical-align: top;
+  }
+  .budget-table td:first-child { font-weight: 500; color: var(--text); }
+  .budget-table td.price {
+    font-weight: 600;
+    color: var(--purple-dark);
+    font-size: 14px;
+    white-space: nowrap;
+  }
+  .budget-table tfoot tr { background: var(--purple-light); }
+  .budget-table tfoot td {
+    font-weight: 700;
+    font-size: 14.5px;
+    color: var(--purple-dark);
+    padding: 1rem 1.25rem;
+  }
+  .rate-notes {
+    margin-top: 1.5rem;
+    background: var(--gold-light);
+    border-left: 3px solid var(--gold);
+    padding: 1rem 1.25rem;
+    border-radius: 0 8px 8px 0;
+  }
+  .rate-notes h4 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+  .rate-notes p, .rate-notes li { font-size: 12.5px; color: #6B5010; }
+  .rate-notes ul { padding-left: 1rem; margin-top: 0.4rem; }
+  .rate-notes li { margin-bottom: 3px; }
+
+  /* NEXT STEPS */
+  .steps-list {
+    counter-reset: steps;
+    list-style: none;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .steps-list li {
+    counter-increment: steps;
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    padding: 1.25rem 1.5rem;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+  }
+  .steps-list li::before {
+    content: counter(steps);
+    min-width: 32px; height: 32px;
+    background: var(--purple);
+    color: white;
+    font-weight: 700;
+    font-size: 13px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .steps-list li div { flex: 1; }
+  .steps-list li strong { display: block; font-size: 14px; margin-bottom: 2px; color: var(--text); }
+  .steps-list li span { font-size: 13px; color: var(--text-light); }
+
+  /* FOOTER */
+  footer {
+    background: var(--purple-dark);
+    color: rgba(255,255,255,0.6);
+    padding: 2rem 4rem;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  footer strong { color: rgba(255,255,255,0.85); }
+
+  /* UTIL */
+  .pill {
+    display: inline-block;
+    font-size: 11px; font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: var(--purple-light);
+    color: var(--purple);
+    letter-spacing: 0.04em;
+  }
+  .divider { width: 40px; height: 3px; background: var(--purple); border-radius: 2px; margin-bottom: 1.5rem; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Blake & Co. × Zeta Schools</div>
+  <a href="#approach">Approach</a>
+  <a href="#scope">Scope</a>
+  <a href="#timeline">Timeline</a>
+  <a href="#team">Team</a>
+  <a href="#investment">Investment</a>
+  <a href="#next-steps">Next Steps</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">Proposal · Draft · March 2026</div>
+    <h1>Specialty Curriculum Development<br><em>for Zeta Charter Schools</em></h1>
+    <p style="color:rgba(255,255,255,0.65); font-size:15px; max-width:620px; line-height:1.65; margin-top:0.5rem;">
+      A phased, framework-first approach to building world-class curriculum across six specialty areas — ensuring every student in the Zeta network experiences programming as rigorous and joyful as any core subject.
+    </p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span>Submitted To</span>
+        <span>Jen Loving, Head of Specialty Programs</span>
+      </div>
+      <div class="hero-meta-item">
+        <span>Content Areas</span>
+        <span>Chess · Visual Arts · Taekwondo · Dance · Musical Theatre · Soccer</span>
+      </div>
+      <div class="hero-meta-item">
+        <span>Unit 1 Deadline</span>
+        <span>July 1, 2026</span>
+      </div>
+      <div class="hero-meta-item">
+        <span>Full Scope</span>
+        <span>Units 1–5 · All Programs · All Grade Bands</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- APPROACH -->
+<section id="approach">
+  <div class="section-inner">
+    <div class="section-label">Our Philosophy</div>
+    <h2>Framework First,<br>Then Exemplars</h2>
+    <div class="divider"></div>
+    <p>Zeta's specialist teachers are already experts in their crafts. The challenge isn't teaching them how to teach chess or dance — it's giving them a coherent, consistent framework so students across every school build skills at the same pace and to the same standard.</p>
+    <p>We approach this work by establishing <strong>unit-level benchmarks and assessment tools first</strong>, then building exemplar lesson plans that demonstrate the standard. Teachers get a clear target and a model path — not a script. This preserves autonomy, scales across a diverse teacher pool, and ensures programmatic consistency network-wide.</p>
+    <p>We also believe this project is too large and too important to get right in one pass. We'll begin with a scoped pilot (Unit 1 + two content areas) to stress-test templates and refine the framework before going wide. The result of the pilot informs every subsequent unit delivery.</p>
+
+    <div class="approach-grid">
+      <div class="approach-card">
+        <div class="icon">🎯</div>
+        <h3>Benchmark-Led Design</h3>
+        <p style="font-size:13.5px;">Every unit begins with measurable outcomes by grade band. Assessment tools are designed before lesson plans — so teachers always know what "mastery" looks like.</p>
+      </div>
+      <div class="approach-card">
+        <div class="icon">🏗️</div>
+        <h3>Templates as Infrastructure</h3>
+        <p style="font-size:13.5px;">A single master template set governs all six subjects, all three program types, and all grade bands. Changes to format propagate universally — no inconsistency across content areas.</p>
+      </div>
+      <div class="approach-card">
+        <div class="icon">🔄</div>
+        <h3>Pilot Before Scale</h3>
+        <p style="font-size:13.5px;">Unit 1 across two subjects serves as the proof-of-concept. Jen reviews and approves the template and quality standard before the full production run begins.</p>
+      </div>
+      <div class="approach-card">
+        <div class="icon">📐</div>
+        <h3>Differentiation Built In</h3>
+        <p style="font-size:13.5px;">Every deliverable reflects all four grade bands (K–2, 3–5, 6–8, 9+) and all three program models (Classes/Electives, Z Clubs, Z Teams). No retrofitting after the fact.</p>
+      </div>
+      <div class="approach-card">
+        <div class="icon">🎓</div>
+        <h3>Academic Rigor for Specialty</h3>
+        <p style="font-size:13.5px;">Each content area will carry the same academic weight as core subjects — content vocabulary, cultural history, skill progression, and trackable data — making the case network-wide.</p>
+      </div>
+      <div class="approach-card">
+        <div class="icon">📅</div>
+        <h3>Rolling Release Schedule</h3>
+        <p style="font-size:13.5px;">Units are delivered 6–8 weeks before implementation begins, giving teachers and school leaders time to review, prepare materials, and attend training.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCOPE -->
+<section id="scope">
+  <div class="section-inner">
+    <div class="section-label">Deliverables by Phase</div>
+    <h2>Scope of Work</h2>
+    <div class="divider"></div>
+    <p>The engagement is structured in six phases. Click each phase to expand deliverables.</p>
+
+    <div class="scope-phases">
+
+      <!-- PHASE 0 -->
+      <div class="scope-phase">
+        <div class="scope-phase-header" onclick="togglePhase(this)">
+          <span class="phase-badge" style="background:var(--phase0)">Phase 0</span>
+          <h3>Discovery, Templates & Pilot</h3>
+          <span class="meta">May 15 – Jun 13 · ~4 weeks</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="scope-phase-body open">
+          <p style="margin-top:1rem; font-size:13.5px; color:var(--text-mid);">Establishes the full infrastructure of the project — master templates, quality standards, and a working pilot unit. Jen Loving reviews and approves the pilot before production begins. Reduces risk for the decision-maker by capping initial investment while proving the approach.</p>
+          <div class="deliverables-grid">
+            <div class="deliverable-group">
+              <h4>Templates & Infrastructure</h4>
+              <ul>
+                <li>Master lesson plan template (all programs × grade bands)</li>
+                <li>Unit overview template</li>
+                <li>Assessment rubric template (performance + knowledge)</li>
+                <li>Scoring + tracking guide for 100+ students</li>
+                <li>Vocabulary list template</li>
+                <li>Skill progression framework</li>
+              </ul>
+            </div>
+            <div class="deliverable-group">
+              <h4>Pilot Unit (Dance + Visual Arts)</h4>
+              <ul>
+                <li>Unit 1 overview — Dance (all grade bands × all programs)</li>
+                <li>Unit 1 overview — Visual Arts (all grade bands × all programs)</li>
+                <li>2–3 exemplar lesson plans per grade band per subject</li>
+                <li>End-of-unit assessments + teacher observation rubrics</li>
+                <li>Jen Loving review session + revision round</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 1 -->
+      <div class="scope-phase">
+        <div class="scope-phase-header" onclick="togglePhase(this)">
+          <span class="phase-badge" style="background:var(--phase1)">Phase 1</span>
+          <h3>Unit 1 — Habits & Routines (All 6 Subjects)</h3>
+          <span class="meta">Jun 13 – Jul 1 · ~2.5 weeks</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="scope-phase-body">
+          <p style="margin-top:1rem; font-size:13.5px; color:var(--text-mid);">Extends the pilot template to the remaining four content areas. All six subjects delivered together as a complete Unit 1 package — ready for July training kickoff.</p>
+          <div class="deliverables-grid">
+            <div class="deliverable-group">
+              <h4>For Each of 6 Content Areas</h4>
+              <ul>
+                <li>Unit 1 overview with learning outcomes by grade band</li>
+                <li>2–3 exemplar lesson plans per grade band (K–2, 3–5, 6–8, 9+)</li>
+                <li>Differentiated versions for Classes, Z Clubs, Z Teams</li>
+                <li>Vocabulary list + cultural/historical context notes</li>
+              </ul>
+            </div>
+            <div class="deliverable-group">
+              <h4>Assessments</h4>
+              <ul>
+                <li>End-of-unit assessment per subject (K–2, 3–5, 6–8, 9+)</li>
+                <li>Teacher observation rubric per grade band</li>
+                <li>Student self-reflection tool</li>
+                <li>Scoring guide + data tracking template</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 2 -->
+      <div class="scope-phase">
+        <div class="scope-phase-header" onclick="togglePhase(this)">
+          <span class="phase-badge" style="background:var(--phase2)">Phase 2</span>
+          <h3>Unit 2 — Foundations of Craft (All 6 Subjects)</h3>
+          <span class="meta">Jul 1 – Sep 1 · ~8 weeks</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="scope-phase-body">
+          <p style="margin-top:1rem; font-size:13.5px; color:var(--text-mid);">Longest instructional unit (~26 days). Deepens technical skill development. All deliverables mirror Unit 1 structure with three assessment points (baseline, mid-unit, end-of-unit).</p>
+          <div class="deliverables-grid">
+            <div class="deliverable-group">
+              <h4>All 6 Subjects</h4>
+              <ul>
+                <li>Unit 2 overview per subject (all grade bands)</li>
+                <li>2–3 exemplar lesson plans per grade band per subject</li>
+                <li>Differentiated for all three program types</li>
+                <li>Content vocabulary + cultural context expansions</li>
+              </ul>
+            </div>
+            <div class="deliverable-group">
+              <h4>Three-Point Assessment Suite</h4>
+              <ul>
+                <li>Baseline assessment (Week 2 of unit)</li>
+                <li>Mid-unit skill check (technique + vocabulary)</li>
+                <li>End-of-unit performance/demonstration rubric</li>
+                <li>Teacher scoring guide with 100+ student workflow</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 3 -->
+      <div class="scope-phase">
+        <div class="scope-phase-header" onclick="togglePhase(this)">
+          <span class="phase-badge" style="background:var(--phase3)">Phase 3</span>
+          <h3>Unit 3 — Performance & Strategy (All 6 Subjects)</h3>
+          <span class="meta">Sep 1 – Nov 1 · ~8 weeks</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="scope-phase-body">
+          <p style="margin-top:1rem; font-size:13.5px; color:var(--text-mid);">Shortest instructional unit (~6 days in December). Designed around winter showcase alignment — content introduces strategic thinking and peer performance feedback. Delivered 8 weeks ahead of implementation.</p>
+          <div class="deliverables-grid">
+            <div class="deliverable-group">
+              <h4>All 6 Subjects</h4>
+              <ul>
+                <li>Unit 3 overview per subject</li>
+                <li>Performance/showcase prep lesson plans</li>
+                <li>Peer and self-feedback protocols</li>
+                <li>Winter showcase integration notes</li>
+              </ul>
+            </div>
+            <div class="deliverable-group">
+              <h4>Assessments</h4>
+              <ul>
+                <li>Mid-unit live performance assessment rubric</li>
+                <li>Self-evaluation reflection tool</li>
+                <li>Teacher mid-year progress evaluation</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 4 -->
+      <div class="scope-phase">
+        <div class="scope-phase-header" onclick="togglePhase(this)">
+          <span class="phase-badge" style="background:var(--phase4)">Phase 4</span>
+          <h3>Unit 4 — Critical Thinking & Execution (All 6 Subjects)</h3>
+          <span class="meta">Nov 1, 2026 – Jan 1, 2027 · ~8 weeks</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="scope-phase-body">
+          <p style="margin-top:1rem; font-size:13.5px; color:var(--text-mid);">Second-longest unit (~26 days, Jan–Mar implementation). Emphasis on competitive and high-stakes performance scenarios. Subject-specific strategy content is most differentiated here — SME involvement is heaviest in this phase.</p>
+          <div class="deliverables-grid">
+            <div class="deliverable-group">
+              <h4>All 6 Subjects</h4>
+              <ul>
+                <li>Unit 4 overview with strategic application focus</li>
+                <li>Competition/performance scenario lesson plans</li>
+                <li>Role specialization and leadership frameworks (Z Teams)</li>
+                <li>Adaptive strategy activities across disciplines</li>
+              </ul>
+            </div>
+            <div class="deliverable-group">
+              <h4>Three-Point Assessment Suite</h4>
+              <ul>
+                <li>Baseline skill application assessment</li>
+                <li>Mid-unit strategic performance assessment</li>
+                <li>End-of-unit growth + execution rubric</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 5 -->
+      <div class="scope-phase">
+        <div class="scope-phase-header" onclick="togglePhase(this)">
+          <span class="phase-badge" style="background:var(--phase5)">Phase 5</span>
+          <h3>Unit 5 — Advanced Techniques & Culminating Showcase (All 6 Subjects)</h3>
+          <span class="meta">Jan 1 – Mar 1, 2027 · ~8 weeks</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="scope-phase-body">
+          <p style="margin-top:1rem; font-size:13.5px; color:var(--text-mid);">Culminating unit (Apr–Jun implementation). Students demonstrate full-year mastery. Final showcases, tournaments, and exhibitions. Year-long growth assessments.</p>
+          <div class="deliverables-grid">
+            <div class="deliverable-group">
+              <h4>All 6 Subjects</h4>
+              <ul>
+                <li>Unit 5 overview + showcase/tournament prep</li>
+                <li>Advanced technique lesson plans with independence scaffolding</li>
+                <li>Student-led practice and leadership frameworks</li>
+                <li>Culminating performance and competition guides</li>
+              </ul>
+            </div>
+            <div class="deliverable-group">
+              <h4>Year-End Assessment Package</h4>
+              <ul>
+                <li>Advanced skill demonstration rubric</li>
+                <li>Culminating performance/competition evaluation</li>
+                <li>Final year-long growth reflection (student + teacher)</li>
+                <li>Network-wide data aggregation template</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE / GANTT -->
+<section id="timeline" id="gantt-section">
+  <div class="section-inner">
+    <div class="section-label">Interactive Project Plan</div>
+    <h2>Timeline</h2>
+    <div class="divider"></div>
+    <p>Hover over any bar to see phase details. The <strong>★ July 1</strong> milestone marks the Unit 1 delivery deadline / training kickoff.</p>
+
+    <div class="gantt-container">
+      <div class="gantt-scroll">
+        <svg id="gantt-svg" height="340"></svg>
+      </div>
+      <div class="gantt-legend" id="gantt-legend"></div>
+    </div>
+    <div class="gantt-tooltip" id="gantt-tooltip"></div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="section-inner">
+    <div class="section-label">Who's Doing the Work</div>
+    <h2>Project Team</h2>
+    <div class="divider"></div>
+    <p>A lean, expert team structured to keep quality high and costs manageable. SMEs are engaged phase-by-phase as their subject areas come into production — not retained for the full engagement.</p>
+
+    <div class="team-grid">
+      <div class="team-card">
+        <span class="role-badge">Lead Consultant</span>
+        <h3>Austin<br><em style="font-style:italic; font-family:'Fraunces',serif; font-size:0.85rem; font-weight:300; color:var(--text-light);">Project Lead & Architect</em></h3>
+        <p class="desc">Overall project management, framework design, quality control, Jen Loving relationship, final review of all deliverables. Primary point of contact throughout.</p>
+      </div>
+      <div class="team-card">
+        <span class="role-badge">Curriculum Specialist</span>
+        <h3>Teacher 1<br><em style="font-style:italic; font-family:'Fraunces',serif; font-size:0.85rem; font-weight:300; color:var(--text-light);">Dance + Visual Arts</em></h3>
+        <p class="desc">Experienced K–8 specialist teacher. Leads Dance and Visual Arts lesson development. Takes advantage of Zeta's existing benchmark documentation for these subjects.</p>
+      </div>
+      <div class="team-card">
+        <span class="role-badge">Curriculum Specialist</span>
+        <h3>Teacher 2<br><em style="font-style:italic; font-family:'Fraunces',serif; font-size:0.85rem; font-weight:300; color:var(--text-light);">Musical Theatre + Soccer</em></h3>
+        <p class="desc">Performing arts background with coaching experience. Leads Musical Theatre and Soccer curriculum. Supports cross-subject assessment design.</p>
+      </div>
+      <div class="team-card">
+        <span class="role-badge">SME</span>
+        <h3>Chess Expert<br><em style="font-style:italic; font-family:'Fraunces',serif; font-size:0.85rem; font-weight:300; color:var(--text-light);">Chess</em></h3>
+        <p class="desc">Rated player with K–12 chess instruction experience. Develops skill progressions, strategic content, and game-play frameworks for Units 1–5.</p>
+      </div>
+      <div class="team-card">
+        <span class="role-badge">SME</span>
+        <h3>Taekwondo Instructor<br><em style="font-style:italic; font-family:'Fraunces',serif; font-size:0.85rem; font-weight:300; color:var(--text-light);">Taekwondo</em></h3>
+        <p class="desc">Certified instructor with belt progression expertise. Develops forms, technical vocabulary, safety protocols, and age-appropriate conditioning for all grade bands.</p>
+      </div>
+      <div class="team-card" style="border: 1px dashed var(--border); background: var(--purple-xlight);">
+        <span class="role-badge" style="background: var(--gold-light); color: var(--gold);">Optional Add-On</span>
+        <h3>SME — Soccer<br><em style="font-style:italic; font-family:'Fraunces',serif; font-size:0.85rem; font-weight:300; color:var(--text-light);">If Teacher 2 requires support</em></h3>
+        <p class="desc">Engaged only if the soccer content requires specialized tactical depth beyond Teacher 2's scope. Priced as optional line item.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INVESTMENT -->
+<section id="investment">
+  <div class="section-inner">
+    <div class="section-label">Project-Based Pricing</div>
+    <h2>Investment</h2>
+    <div class="divider"></div>
+    <p>All pricing is project-based with milestone payments tied to phase deliveries. Each phase is invoiced upon approved delivery of that unit package, not on a monthly retainer.</p>
+
+    <style>
+      .budget-table th.hrs { min-width: 110px; }
+      .budget-table td.hrs { font-size: 12.5px; color: var(--text-light); white-space: nowrap; }
+      .budget-table td.price-range { font-weight: 600; color: var(--purple-dark); font-size: 13.5px; white-space: nowrap; }
+      .budget-table td.midpoint { font-weight: 500; color: var(--text-mid); font-size: 13px; white-space: nowrap; }
+      .range-note { font-size: 11.5px; color: var(--text-light); display: block; font-weight: 400; margin-top: 2px; }
+      .assumption-tag {
+        display: inline-block; font-size: 10px; font-weight: 600;
+        letter-spacing: 0.06em; text-transform: uppercase;
+        background: var(--purple-light); color: var(--purple);
+        padding: 2px 7px; border-radius: 10px; margin: 2px 2px 2px 0;
+      }
+      .assumptions-block {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 1.5rem;
+        margin-bottom: 1.75rem;
+      }
+      .assumptions-block h4 {
+        font-size: 11px; font-weight: 700;
+        letter-spacing: 0.1em; text-transform: uppercase;
+        color: var(--purple); margin-bottom: 0.75rem;
+      }
+      .assumptions-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+      }
+      .assumption-item strong {
+        display: block; font-size: 13px; color: var(--text); margin-bottom: 2px;
+      }
+      .assumption-item span { font-size: 12.5px; color: var(--text-light); }
+    </style>
+
+    <div class="assumptions-block">
+      <h4>Pricing Assumptions</h4>
+      <div class="assumptions-grid">
+        <div class="assumption-item">
+          <strong>Lead Consultant — $90/hr</strong>
+          <span>PM, QC, Jen Loving relationship, template architecture. PayScale (2025): $69.57/hr avg; NYC + PM premium applied.</span>
+        </div>
+        <div class="assumption-item">
+          <strong>Curriculum Specialists — $60/hr</strong>
+          <span>Teachers 1 & 2. Upwork (2025): $50–75/hr for freelance K–12 curriculum developers; mid-range for experienced specialists.</span>
+        </div>
+        <div class="assumption-item">
+          <strong>SMEs (Chess, Taekwondo) — $60/hr</strong>
+          <span>Content briefs, technical review, vocabulary. ThirdWork (2024): $50–75/hr for specialist freelance curriculum work.</span>
+        </div>
+        <div class="assumption-item">
+          <strong>Lesson Plan Depth</strong>
+          <span>2–3 exemplar plans per grade band per subject (~2.5–3.5 hrs each). Z Clubs + Z Teams adaptations add ~40% per plan. Final depth confirmed after Phase 0 pilot review.</span>
+        </div>
+        <div class="assumption-item">
+          <strong>Revision Rounds</strong>
+          <span>One revision round per phase, built into estimates. A second round adds ~15–20% to any phase total.</span>
+        </div>
+        <div class="assumption-item">
+          <strong>Range drivers</strong>
+          <span>Low end = 2 exemplars/grade band. High end = 3 exemplars/grade band + full program differentiation shown for each. Phase 0 pilot review sets the standard for all subsequent phases.</span>
+        </div>
+      </div>
+    </div>
+
+    <table class="budget-table">
+      <thead>
+        <tr>
+          <th>Phase</th>
+          <th>Scope</th>
+          <th>Timeline</th>
+          <th class="hrs">Est. Hours</th>
+          <th class="price">Fee Range</th>
+          <th class="price">Midpoint</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="pill" style="background:#EDE6F7; color:var(--phase0)">Phase 0</span></td>
+          <td>
+            Discovery · Templates · Pilot (Dance + Visual Arts, Unit 1)
+            <span class="range-note">Largest planning overhead; template architecture drives cost regardless of final lesson depth.</span>
+          </td>
+          <td style="font-size:12px; color:var(--text-light); white-space:nowrap;">May 15 – Jun 13</td>
+          <td class="hrs">131–224 hrs</td>
+          <td class="price-range">$9,000–$15,000</td>
+          <td class="midpoint">$12,000</td>
+        </tr>
+        <tr>
+          <td><span class="pill" style="background:#F0E8FA; color:var(--phase1)">Phase 1</span></td>
+          <td>
+            Unit 1 complete — all 6 subjects, all programs, all grade bands
+            <span class="range-note">Tight 2.5-week window is the primary risk; upper bound assumes one scope clarification delay.</span>
+          </td>
+          <td style="font-size:12px; color:var(--text-light); white-space:nowrap;">Jun 13 – Jul 1</td>
+          <td class="hrs">169–287 hrs</td>
+          <td class="price-range">$11,000–$18,500</td>
+          <td class="midpoint">$14,750</td>
+        </tr>
+        <tr>
+          <td><span class="pill" style="background:#E6F0FA; color:var(--phase2)">Phase 2</span></td>
+          <td>
+            Unit 2 — Foundations of Craft (longest unit; 3-point assessment suite)
+            <span class="range-note">Highest subject-specific content density; chess and taekwondo SME hours peak here.</span>
+          </td>
+          <td style="font-size:12px; color:var(--text-light); white-space:nowrap;">Jul 1 – Sep 1</td>
+          <td class="hrs">311–518 hrs</td>
+          <td class="price-range">$20,500–$33,500</td>
+          <td class="midpoint">$27,000</td>
+        </tr>
+        <tr>
+          <td><span class="pill" style="background:#E6F5EF; color:var(--phase3)">Phase 3</span></td>
+          <td>
+            Unit 3 — Performance & Strategy (shortest instructional unit; showcase-aligned)
+            <span class="range-note">Fewer lesson plans but new structural format (performance analysis, peer feedback) adds design time.</span>
+          </td>
+          <td style="font-size:12px; color:var(--text-light); white-space:nowrap;">Sep 1 – Nov 1</td>
+          <td class="hrs">177–318 hrs</td>
+          <td class="price-range">$12,500–$20,500</td>
+          <td class="midpoint">$16,500</td>
+        </tr>
+        <tr>
+          <td><span class="pill" style="background:#FBF0D9; color:var(--phase4)">Phase 4</span></td>
+          <td>
+            Unit 4 — Critical Thinking & Execution (competitive scenarios; heaviest SME involvement)
+            <span class="range-note">Scenario-based lesson plans take longer to write well; real-time strategy content requires more SME validation cycles.</span>
+          </td>
+          <td style="font-size:12px; color:var(--text-light); white-space:nowrap;">Nov 1 – Jan 1</td>
+          <td class="hrs">326–536 hrs</td>
+          <td class="price-range">$21,000–$34,000</td>
+          <td class="midpoint">$27,500</td>
+        </tr>
+        <tr>
+          <td><span class="pill" style="background:#FAE8E8; color:var(--phase5)">Phase 5</span></td>
+          <td>
+            Unit 5 — Advanced Techniques + Year-End Assessment Package
+            <span class="range-note">Year-long growth tracking tools and network-wide data template add a layer not present in earlier phases.</span>
+          </td>
+          <td style="font-size:12px; color:var(--text-light); white-space:nowrap;">Jan 1 – Mar 1</td>
+          <td class="hrs">242–414 hrs</td>
+          <td class="price-range">$15,500–$26,500</td>
+          <td class="midpoint">$21,000</td>
+        </tr>
+        <tr style="background: var(--gold-light);">
+          <td colspan="3" style="font-size:12.5px; color:#6B5010; font-weight:500;">
+            Contingency / Facilitation Reserve
+            <span class="range-note" style="color:#8B6820;">Mid-project scope discussions, template revisions between phases, July training prep support. Drawn down as needed; unused portion not invoiced.</span>
+          </td>
+          <td class="hrs" style="color:#8B6820;">—</td>
+          <td class="price-range" style="color:#8B6820;">$5,000–$8,000</td>
+          <td class="midpoint" style="color:#8B6820;">$6,500</td>
+        </tr>
+        <tr>
+          <td colspan="3" style="font-size:12px; color:var(--text-light); padding-top:0.5rem;">Optional: Soccer SME support (if Teacher 2 requires subject-matter backup, Phases 2–5)</td>
+          <td class="hrs" style="color:var(--text-light);">30–50 hrs</td>
+          <td class="price-range" style="color:var(--text-light); font-weight:500;">+$1,800–$3,000</td>
+          <td class="midpoint">—</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3">Total Investment (Core Scope · incl. contingency)</td>
+          <td style="font-size:13px; color:var(--purple-dark); font-weight:600;">1,356–2,297 hrs</td>
+          <td style="font-size:14.5px; font-weight:700; color:var(--purple-dark); white-space:nowrap;">$94,500–$156,000</td>
+          <td style="font-size:14.5px; font-weight:700; color:var(--purple-dark);">~$125,250</td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <div class="rate-notes">
+      <h4>How to Read These Ranges</h4>
+      <p>Each range reflects the same scope delivered at two levels of lesson plan depth. The primary lever is <strong>number of exemplar lesson plans per grade band per subject</strong> — 2 plans puts you at the low end; 3 plans with full program differentiation shown puts you at the high end. Final depth is confirmed with Jen Loving after the Phase 0 pilot review, at which point Phases 2–5 can be re-estimated with much tighter confidence.</p>
+      <ul>
+        <li><strong>Milestone payments</strong> — each phase invoiced upon approved delivery, not on a retainer schedule.</li>
+        <li><strong>One revision round per phase</strong> is included. Additional rounds billed at role rates against the contingency reserve.</li>
+        <li><strong>Phase 0 is the entry commitment</strong> — scope and pricing for Phases 1–5 can be formally confirmed after the pilot review in mid-June.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- NEXT STEPS -->
+<section id="next-steps">
+  <div class="section-inner">
+    <div class="section-label">From Here</div>
+    <h2>Next Steps</h2>
+    <div class="divider"></div>
+    <ol class="steps-list">
+      <li>
+        <div>
+          <strong>Jen Loving Reviews & Shares with Decision-Maker</strong>
+          <span>Proposal shared internally at Zeta for budget approval. We're available to answer questions or adjust scope/pricing as needed for the conversation.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Confirm Soccer Inclusion & SME Plan</strong>
+          <span>Confirm whether Soccer is included in core scope and whether Teacher 2 covers it or an external SME is needed. This affects Phase 1 delivery scope slightly.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Project Agreement & Phase 0 Kickoff</strong>
+          <span>Upon approval, we execute a project agreement and schedule the kickoff meeting with Jen Loving to align on template format, quality standards, and the Dance/Visual Arts pilot.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Teacher + SME Onboarding</strong>
+          <span>Specialist teachers and SMEs are briefed on the framework during Phase 0 before producing content — ensuring alignment with Zeta's vision before production begins.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Pilot Review with Jen Loving (mid-June)</strong>
+          <span>Jen Loving reviews the Dance + Visual Arts Unit 1 pilot. This is the key quality gate — feedback shapes the full production run. One revision round is included in Phase 0.</span>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>Prepared by <strong>Blake & Co.</strong> · Draft for Discussion · March 2026</div>
+  <div>Questions? This proposal is a starting point — happy to adjust scope, phasing, or pricing.</div>
+</footer>
+
+<!-- GANTT SCRIPT -->
+<script>
+(function() {
+  const phases = [
+    {
+      label: "Phase 0",
+      name: "Discovery & Pilot",
+      color: "#5B2D8E",
+      start: new Date(2026, 4, 15),
+      end:   new Date(2026, 5, 13),
+      deliverables: ["Master template suite", "Dance Unit 1 (pilot)", "Visual Arts Unit 1 (pilot)", "Scoring & tracking guide"]
+    },
+    {
+      label: "Phase 1",
+      name: "Unit 1 — All 6 Subjects",
+      color: "#8246C8",
+      start: new Date(2026, 5, 13),
+      end:   new Date(2026, 6, 1),
+      deliverables: ["Unit 1 for all 6 subjects", "All grade bands × all programs", "End-of-unit assessments", "★ July 1 training kickoff deadline"]
+    },
+    {
+      label: "Phase 2",
+      name: "Unit 2 — Foundations of Craft",
+      color: "#3A7BD5",
+      start: new Date(2026, 6, 1),
+      end:   new Date(2026, 8, 1),
+      deliverables: ["Unit 2 for all 6 subjects", "3-point assessment suite", "Baseline + mid-unit + end-of-unit", "Longest instructional unit (~26 days)"]
+    },
+    {
+      label: "Phase 3",
+      name: "Unit 3 — Performance & Strategy",
+      color: "#1DA37A",
+      start: new Date(2026, 8, 1),
+      end:   new Date(2026, 10, 1),
+      deliverables: ["Unit 3 for all 6 subjects", "Winter showcase integration", "Peer feedback protocols", "Shortest unit (~6 days)"]
+    },
+    {
+      label: "Phase 4",
+      name: "Unit 4 — Critical Thinking",
+      color: "#C9860A",
+      start: new Date(2026, 10, 1),
+      end:   new Date(2027, 0, 1),
+      deliverables: ["Unit 4 for all 6 subjects", "Competitive/performance scenarios", "Heavy SME involvement", "Role specialization frameworks"]
+    },
+    {
+      label: "Phase 5",
+      name: "Unit 5 — Advanced Techniques",
+      color: "#C44A4A",
+      start: new Date(2027, 0, 1),
+      end:   new Date(2027, 2, 1),
+      deliverables: ["Unit 5 for all 6 subjects", "Showcase & tournament prep", "Year-long growth assessments", "Final network-wide data template"]
+    }
+  ];
+
+  const GANTT_START = new Date(2026, 4, 1);  // May 2026
+  const GANTT_END   = new Date(2027, 2, 15); // mid-March 2027
+  const TOTAL_MS = GANTT_END - GANTT_START;
+
+  const PAD_L = 140, PAD_R = 20, PAD_TOP = 50, BAR_H = 28, BAR_GAP = 14;
+  const TOTAL_H = PAD_TOP + phases.length * (BAR_H + BAR_GAP) + 40;
+
+  function fmtDate(d) {
+    return d.toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' });
+  }
+
+  function xOf(date, svgW) {
+    const usable = svgW - PAD_L - PAD_R;
+    return PAD_L + ((date - GANTT_START) / TOTAL_MS) * usable;
+  }
+
+  const svg = document.getElementById('gantt-svg');
+  const legend = document.getElementById('gantt-legend');
+  const tooltip = document.getElementById('gantt-tooltip');
+
+  function render() {
+    const svgW = svg.parentElement.clientWidth || 800;
+    svg.setAttribute('viewBox', `0 0 ${svgW} ${TOTAL_H}`);
+    svg.setAttribute('width', svgW);
+    svg.setAttribute('height', TOTAL_H);
+    svg.innerHTML = '';
+
+    // background
+    const bg = document.createElementNS('http://www.w3.org/2000/svg','rect');
+    bg.setAttribute('width', svgW); bg.setAttribute('height', TOTAL_H);
+    bg.setAttribute('fill', '#FDFCFE');
+    svg.appendChild(bg);
+
+    // month grid lines
+    const months = [];
+    let cur = new Date(GANTT_START);
+    while (cur <= GANTT_END) {
+      months.push(new Date(cur));
+      cur = new Date(cur.getFullYear(), cur.getMonth()+1, 1);
+    }
+
+    months.forEach((m, i) => {
+      const x = xOf(m, svgW);
+      // grid line
+      const line = document.createElementNS('http://www.w3.org/2000/svg','line');
+      line.setAttribute('x1', x); line.setAttribute('y1', PAD_TOP-14);
+      line.setAttribute('x2', x); line.setAttribute('y2', TOTAL_H-10);
+      line.setAttribute('stroke', '#E2D9F0');
+      line.setAttribute('stroke-width', '1');
+      svg.appendChild(line);
+      // label
+      const text = document.createElementNS('http://www.w3.org/2000/svg','text');
+      text.setAttribute('x', x+4); text.setAttribute('y', PAD_TOP-18);
+      text.setAttribute('font-size','11');
+      text.setAttribute('font-family','DM Sans, sans-serif');
+      text.setAttribute('fill','#8B7BA0');
+      text.setAttribute('font-weight','500');
+      text.textContent = m.toLocaleDateString('en-US', {month:'short', year:'2-digit'});
+      svg.appendChild(text);
+    });
+
+    // July 1 milestone
+    const milestoneX = xOf(new Date(2026,6,1), svgW);
+    const mline = document.createElementNS('http://www.w3.org/2000/svg','line');
+    mline.setAttribute('x1', milestoneX); mline.setAttribute('y1', PAD_TOP-14);
+    mline.setAttribute('x2', milestoneX); mline.setAttribute('y2', TOTAL_H-10);
+    mline.setAttribute('stroke', '#C9860A');
+    mline.setAttribute('stroke-width', '2');
+    mline.setAttribute('stroke-dasharray', '5,4');
+    svg.appendChild(mline);
+    const mtext = document.createElementNS('http://www.w3.org/2000/svg','text');
+    mtext.setAttribute('x', milestoneX+5); mtext.setAttribute('y', PAD_TOP-4);
+    mtext.setAttribute('font-size','10.5');
+    mtext.setAttribute('font-family','DM Sans, sans-serif');
+    mtext.setAttribute('fill','#C9860A');
+    mtext.setAttribute('font-weight','700');
+    mtext.textContent = '★ Jul 1 Deadline';
+    svg.appendChild(mtext);
+
+    // bars
+    phases.forEach((p, i) => {
+      const y = PAD_TOP + i * (BAR_H + BAR_GAP);
+      const x1 = xOf(p.start, svgW);
+      const x2 = xOf(p.end, svgW);
+      const barW = Math.max(x2 - x1, 10);
+
+      // row label
+      const lbl = document.createElementNS('http://www.w3.org/2000/svg','text');
+      lbl.setAttribute('x', PAD_L - 8); lbl.setAttribute('y', y + BAR_H/2 + 4);
+      lbl.setAttribute('font-size','12'); lbl.setAttribute('text-anchor','end');
+      lbl.setAttribute('font-family','DM Sans, sans-serif');
+      lbl.setAttribute('fill','#4A3B5C'); lbl.setAttribute('font-weight','600');
+      lbl.textContent = p.label;
+      svg.appendChild(lbl);
+
+      // bar background (full row)
+      const rowbg = document.createElementNS('http://www.w3.org/2000/svg','rect');
+      rowbg.setAttribute('x', PAD_L); rowbg.setAttribute('y', y);
+      rowbg.setAttribute('width', svgW - PAD_L - PAD_R);
+      rowbg.setAttribute('height', BAR_H);
+      rowbg.setAttribute('fill', '#F5F2FA');
+      rowbg.setAttribute('rx','4');
+      svg.appendChild(rowbg);
+
+      // bar
+      const bar = document.createElementNS('http://www.w3.org/2000/svg','rect');
+      bar.setAttribute('x', x1); bar.setAttribute('y', y);
+      bar.setAttribute('width', barW); bar.setAttribute('height', BAR_H);
+      bar.setAttribute('fill', p.color); bar.setAttribute('rx','4');
+      bar.setAttribute('opacity','0.92');
+      bar.style.cursor = 'pointer';
+      bar.style.transition = 'opacity 0.15s';
+      svg.appendChild(bar);
+
+      // bar label (if wide enough)
+      if (barW > 80) {
+        const btxt = document.createElementNS('http://www.w3.org/2000/svg','text');
+        btxt.setAttribute('x', x1 + 8); btxt.setAttribute('y', y + BAR_H/2 + 4);
+        btxt.setAttribute('font-size','11'); btxt.setAttribute('font-family','DM Sans, sans-serif');
+        btxt.setAttribute('fill','rgba(255,255,255,0.92)'); btxt.setAttribute('font-weight','500');
+        btxt.textContent = p.name;
+        btxt.style.pointerEvents = 'none';
+        svg.appendChild(btxt);
+      }
+
+      // hover interaction on bar
+      bar.addEventListener('mouseenter', function(e) {
+        bar.setAttribute('opacity','1');
+        tooltip.innerHTML = `<strong>${p.label}: ${p.name}</strong><span>${fmtDate(p.start)} – ${fmtDate(p.end)}</span><br><br>` +
+          p.deliverables.map(d => `<span>• ${d}</span>`).join('<br>');
+        tooltip.classList.add('visible');
+        moveTip(e);
+      });
+      bar.addEventListener('mousemove', moveTip);
+      bar.addEventListener('mouseleave', function() {
+        bar.setAttribute('opacity','0.92');
+        tooltip.classList.remove('visible');
+      });
+    });
+  }
+
+  function moveTip(e) {
+    const tx = e.clientX + 16;
+    const ty = e.clientY - 10;
+    const tipW = 260;
+    const left = (tx + tipW > window.innerWidth) ? e.clientX - tipW - 10 : tx;
+    tooltip.style.left = left + 'px';
+    tooltip.style.top = ty + 'px';
+  }
+
+  // legend
+  phases.forEach(p => {
+    const item = document.createElement('div');
+    item.className = 'legend-item';
+    item.innerHTML = `<span class="legend-dot" style="background:${p.color}"></span><span>${p.label}: ${p.name}</span>`;
+    legend.appendChild(item);
+  });
+  const milLeg = document.createElement('div');
+  milLeg.className = 'legend-item';
+  milLeg.innerHTML = `<span class="legend-dot" style="background:#C9860A; width:14px; height:3px; border-radius:1px; margin:4px 0;"></span><span>★ July 1 Training Kickoff</span>`;
+  legend.appendChild(milLeg);
+
+  render();
+  window.addEventListener('resize', render);
+})();
+</script>
+
+<!-- SCOPE ACCORDION SCRIPT -->
+<script>
+function togglePhase(header) {
+  const body = header.nextElementSibling;
+  const chevron = header.querySelector('.chevron');
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open', !isOpen);
+  chevron.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+}
+// set initial chevron states
+document.querySelectorAll('.scope-phase-header').forEach(h => {
+  const body = h.nextElementSibling;
+  const chevron = h.querySelector('.chevron');
+  chevron.style.transform = body.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+});
+</script>
+
+</body>
+</html>
